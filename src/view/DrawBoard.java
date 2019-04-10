@@ -35,20 +35,20 @@ public class DrawBoard extends JPanel {
 
 	public void drawBoard(Graphics arg0) {
 		// 1~19 까지
-		for (int i = 1; i < Main.SIZE - 1; i++) {
-			arg0.drawLine(2 * Main.CELL, (i + 1) * Main.CELL, Main.CELL * (Main.SIZE - 1), (i + 1) * Main.CELL); // 가로줄
-			arg0.drawLine((i + 1) * Main.CELL, 2 * Main.CELL, (i + 1) * Main.CELL, Main.CELL * (Main.SIZE - 1)); // 세로줄
+		for (int i = 1; i < 20; i++) {
+			arg0.drawLine(2 * Main.CELL, (i + 1) * Main.CELL, Main.CELL * (20), (i + 1) * Main.CELL); // 가로줄
+			arg0.drawLine((i + 1) * Main.CELL, 2 * Main.CELL, (i + 1) * Main.CELL, Main.CELL * (20)); // 세로줄
 		}
 
 	}
 
 	public void drawStone(Graphics arg0) {
-		for (int x = 1; x < Main.SIZE - 1; x++) {
-			for (int y = 1; y < Main.SIZE - 1; y++) {
+		for (int x = 4; x < Main.SIZE-4; x++) {
+			for (int y = 4; y < Main.SIZE-4; y++) {
 				if (checkerboard.getXY(x, y) == Main.BLACK) {
-					drawBlackStone(arg0, x, y);
+					drawBlackStone(arg0, x-3, y-3);
 				} else if (checkerboard.getXY(x, y) == Main.WHITE) {
-					drawWhiteStone(arg0, x, y);
+					drawWhiteStone(arg0, x-3, y-3);
 				}
 			}
 		}

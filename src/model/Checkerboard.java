@@ -43,15 +43,6 @@ public class Checkerboard {
 			colorFlag = true;
 		}
 	}
-	
-	// 승리자를 채크 method 매번 흑백을 채크 할 필요 없이, 마지막 돌의 색상만 채크 한다.
-	public void winnerCheck(int x, int y) {
-		if (colorFlag) { // 마지막 돌이 하양인 경우 하양만 확인
-			whiteStoneCheck(x, y);
-		} else { // 마지막 돌이 검정인 경우 검정만 확인
-			blackStoneCheck(x, y);
-		}
-	}
 
 	public void blackStoneCheck(int x, int y) {
 
@@ -60,7 +51,7 @@ public class Checkerboard {
 		int slash = slashCheck(x, y, Main.BLACK);
 		int backslash = backSlashCheck(x, y, Main.BLACK);
 		if (horizontal == 5 || vertical == 5 || slash == 5 || backslash == 5) {
-			isGameRun = false;
+			this.isGameRun = false;
 		}
 	}
 
@@ -70,7 +61,7 @@ public class Checkerboard {
 		int slash = slashCheck(x, y, Main.WHITE);
 		int backslash = backSlashCheck(x, y, Main.WHITE);
 		if (horizontal == 5 || vertical == 5 || slash == 5 || backslash == 5) {
-			isGameRun = false;
+			this.isGameRun = false;
 		}
 	}
 
@@ -99,7 +90,7 @@ public class Checkerboard {
 		int vertical = 0;
 
 		for (int i = 0; i < Main.SIZE; i++) {
-			if (board[x][i] == stoneColor) {
+			if (board[x][i] == stoneColor) {				
 				vertical++;
 			} else {
 				if (vertical == 5)
@@ -113,11 +104,11 @@ public class Checkerboard {
 	public int slashCheck(int x, int y, short stoneColor) {
 		int slash = 0;
 		int slashX = x, slashY = y;
-		while (slashX != 0 && slashY != 19) {
+		while (slashX != 4 && slashY != 22) {
 			slashX--;
 			slashY++;
 		}
-		while (slashX != 19 && slashY != 0) {
+		while (slashX != 22 && slashY != 4) {
 			if (board[slashX][slashY] == stoneColor) {
 				slash++;
 			} else {
@@ -135,11 +126,11 @@ public class Checkerboard {
 
 		int slash = 0;
 		int slashX = x, slashY = y;
-		while (slashX != 0 && slashY != 0) {
+		while (slashX != 4 && slashY != 4) {
 			slashX--;
 			slashY--;
 		}
-		while (slashX != 19 && slashY != 19) {
+		while (slashX != 22 && slashY != 22) {
 			if (board[slashX][slashY] == stoneColor) {
 				slash++;
 			} else {
