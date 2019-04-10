@@ -146,13 +146,13 @@ public class AI {
 				}
 				//4格 规绢 己傍
 				else if(board[i-1][j] == myStone &&board[i][j] == yourStone &&board[i+1][j] == yourStone &&board[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j] == yourStone &&board[i][j] == myStone &&board[i+1][j] == yourStone &&board[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j] == yourStone &&board[i][j] == yourStone &&board[i+1][j] == myStone &&board[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j] == yourStone &&board[i][j] == yourStone &&board[i+1][j] == yourStone &&board[i+2][j] == myStone ){
-					score += 30000;
+					score += 31000;
 				}
 				//3格 规绢 
 				else if(board[i-1][j] == myStone &&board[i][j] == yourStone &&board[i+1][j] == yourStone){
@@ -289,13 +289,13 @@ public class AI {
 				}
 				//4格 规绢 己傍
 				else if(board[i-1][j-1] == myStone &&board[i][j] == yourStone &&board[i+1][j+1] == yourStone &&board[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j-1] == yourStone &&board[i][j] == myStone &&board[i+1][j+1] == yourStone &&board[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j-1] == yourStone &&board[i][j] == yourStone &&board[i+1][j+1] == myStone &&board[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(board[i-1][j-1] == yourStone &&board[i][j] == yourStone &&board[i+1][j+1] == yourStone &&board[i+2][j+2] == myStone ){
-					score += 30000;
+					score += 31000;
 				}
 				//3格 规绢 
 				else if(board[i-1][j-1] == myStone &&board[i][j] == yourStone &&board[i+1][j+1] == yourStone){
@@ -435,13 +435,13 @@ public class AI {
 				}
 				//4格 规绢 己傍
 				else if(boardT[i-1][j] == myStone &&boardT[i][j] == yourStone &&boardT[i+1][j] == yourStone &&boardT[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardT[i-1][j] == yourStone &&boardT[i][j] == myStone &&boardT[i+1][j] == yourStone &&boardT[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardT[i-1][j] == yourStone &&boardT[i][j] == yourStone &&boardT[i+1][j] == myStone &&boardT[i+2][j] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardT[i-1][j] == yourStone &&boardT[i][j] == yourStone &&boardT[i+1][j] == yourStone &&boardT[i+2][j] == myStone ){
-					score += 30000;
+					score += 31000;
 				}
 				//3格 规绢 
 				else if(boardT[i-1][j] == myStone &&boardT[i][j] == yourStone &&boardT[i+1][j] == yourStone){
@@ -578,13 +578,13 @@ public class AI {
 				}
 				//4格 规绢 己傍
 				else if(boardM[i-1][j-1] == myStone &&boardM[i][j] == yourStone &&boardM[i+1][j+1] == yourStone &&boardM[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardM[i-1][j-1] == yourStone &&boardM[i][j] == myStone &&boardM[i+1][j+1] == yourStone &&boardM[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardM[i-1][j-1] == yourStone &&boardM[i][j] == yourStone &&boardM[i+1][j+1] == myStone &&boardM[i+2][j+2] == yourStone ){
-					score += 30000;
+					score += 31000;
 				}else if(boardM[i-1][j-1] == yourStone &&boardM[i][j] == yourStone &&boardM[i+1][j+1] == yourStone &&boardM[i+2][j+2] == myStone ){
-					score += 30000;
+					score += 31000;
 				}
 				//3格 规绢 
 				else if(boardM[i-1][j-1] == myStone &&boardM[i][j] == yourStone &&boardM[i+1][j+1] == yourStone){
@@ -641,9 +641,14 @@ public class AI {
 					bestValue = Math.max(bestValue, bv);
 					node.setXmove(node.getChild().get(i).getXmove());
 					node.setYmove(node.getChild().get(i).getYmove());
+				}else if(bestValue == bv){
+					if((int)(Math.random()*2)%2 == 0){
+						bestValue = Math.max(bestValue, bv);
+						node.setXmove(node.getChild().get(i).getXmove());
+						node.setYmove(node.getChild().get(i).getYmove());
+					}					
 				}
-//				System.out.println(node.getChild().get(i).getBestValue() + " " + node.getChild().get(i).getXmove() + " "
-//						+ node.getChild().get(i).getYmove());
+				
 			}
 			return bestValue;
 		} 
